@@ -4,6 +4,8 @@ A cleanroom acceptance harness for deck/presentation engines: it proves a slide 
 
 **Confidence: High (85%)** that hash-based determinism + replay idempotence catches the retry-drift bugs agent loops produce; **Medium (65%)** that the heuristic text-overflow estimate (chars-per-line ≈ w / 0.6·font) matches your renderer's metrics [estimated].
 
+<p align="center"><img src="docs/demo.gif" alt="demo" width="720"></p>
+
 ## Problem
 
 Agent-built decks fail in boring, preventable ways: the same spec renders differently across runs (non-deterministic ordering, timestamps, locale), a retried edit appends the title twice, an element lands at x=1200 on a 1280 canvas, or the 500-character "headline" overflows its 80-px box. Template tools catch none of this, and human reviewers see it only after export. Contract checking — not content checking — is the unguarded half of the deck pipeline.
